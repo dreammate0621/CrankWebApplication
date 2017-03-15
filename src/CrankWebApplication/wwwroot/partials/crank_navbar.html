@@ -1,0 +1,35 @@
+<!-- $scope navBarCtrl -->
+
+<div class="navbar  header">
+    <div class="navbar-inner container">
+        <div class="header_logo">
+            <img ng-click="doRefresh()" src="images/crank_header_logo.png" width="75px" height="75px" />
+        </div>
+
+        <div class="navbar-left col-sm-2 hidden-xs">
+            <a href="" ng-click="workpageModalOpen()" id="loginButton" data-toggle="dropdown">
+                <i class="fa fa-align-justify" style="margin-right:5px;vertical-align:middle;font-size:1.25em;margin-top:-3px;">
+                </i>
+            </a>
+            <span ng-click="clickCrank()" class="brand">CRANK</span>
+        </div>
+        <div class="col-sm-2 col-lg-2">
+            <div id="add-new-artist-wrapper" class="add-new-artist-wrapper" ng-class="{active: add_new_artist_active}" tabindex="1">
+                <input class="search-artist form-control" ng-model="artist_to_add" ng-change="searchNewArtist(artist_to_add)" typeahead="artist.name for artist in artists | limitTo:3" typeahead-on-select="selectAddNewArtist($item)" ng-focus="onFocus()" ng-blur="onBlur()" ng-click="onFocus()" />
+                <div id="search-anim" ng-click="saveIfSelected(found_artist)" ng-bind-html-unsafe="search_icon"></div>
+            </div>
+        </div>
+        <div class="col-sm-8 col-lg-8">
+            <ul class="navbar-right">
+                <li class="dropdown text-align-right nav navbar-nav">
+                    <span class="crank-login">
+                        Welcome, {{current_login_user.firstName}}  {{current_login_user.lastName}}
+                    </span>
+                </li>
+                <li><a href="#/" class="logout">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+

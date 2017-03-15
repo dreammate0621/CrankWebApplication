@@ -1,0 +1,21 @@
+@import 'normalize';
+@import 'vars';
+@import 'fonts';
+@import 'components/events';
+@import 'components/event';
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: $font;
+    line-height: 1.3;
+    color: $color-dark;
+}

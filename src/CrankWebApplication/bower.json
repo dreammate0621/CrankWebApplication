@@ -1,0 +1,25 @@
+{
+  "name": "asp.net",
+  "private": true,
+  "dependencies": {
+    "bower": "*",
+    "install": "~1.0.4",
+    "Leaflet.label": "~0.2.1",
+    "Leaflet.zoomslider": "leaflet-zoomslider#~0.7.0",
+    "less": "~2.7.1",
+    "leaflet": "~0.7.7",
+    "Leaflet.awesome-markers": "leaflet.awesome-markers#~2.0.2",
+    "leaflet-plugins": "~1.8.0",
+    "leaflet-div-heatmap": "~1.0.0",
+    "leaflet-draw": "~0.3.0",
+    "leaflet-tilelayer-geojson": "~1.0.1",
+    "d3": "~4.1.1",
+    "leaflet.markercluster": "~0.5.0",
+    "lodash": "4.15.0",
+    "isotope": "^3.0.1",
+    "font-awesome": "4.6.1"
+  },
+  "resolutions": {
+    "angular": "1.5.9-build.4958+sha.10a6e1a"
+  }
+}

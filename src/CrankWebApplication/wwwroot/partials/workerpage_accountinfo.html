@@ -1,0 +1,116 @@
+<style type="text/css">
+    .account_info_label{
+        text-align:right;
+        font-size:14px;      
+    }
+ 
+.fileinput {
+    background: #2f2f2f;
+    box-shadow: none;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 16px;
+    border: none;
+    padding: 0;
+    text-align: center;
+}
+
+.custom-file-upload {
+      display: inline-block;
+      cursor: pointer;
+      background: #2f2f2f;
+      box-shadow: none;
+      color: #ffffff;
+      text-transform: uppercase;
+      font-size: 16px;
+      border: none;
+      padding: 0;
+      text-align: center;
+      height:50px;
+      line-height:50px;
+      vertical-align:middle;
+      margin-top:20px;
+      width:100%;   
+}
+</style>
+<div class="account__content" id="accountInfo">
+    <div class="register">
+        <div class="register-form">
+            <form autocomplete="off" id="register-form" class="form-inline form-ajax form-validate" data-result=".register-result" method="post" action="" ng-submit="updateAccountInfo()">
+                
+                        <div class="row">     
+                          
+                            <div class="col-md-7">
+                                <div class="row">
+                                    <div class="col-md-12 user__title account_info_label" style="text-align:left">
+                                        User ID :
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <input type="text" tabindex="1" placeholder="ENTER USER ID" style="height:35px" ng-disabled="true" maxlength="25" class="input" id="accountinfo_userid" ng-model="accountinfo.userid">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 user__title account_info_label" style="text-align:left">
+                                        First Name :
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <input type="text" tabindex="2" required="required"  style="height:35px" placeholder="ENTER FIRST NAME" maxlength="25" class="input" id="accountinfo_firstname" ng-model="accountinfo.firstName">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 user__title account_info_label" style="text-align:left">
+                                        Last Name :
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <input type="text" tabindex="3" required="required" style="height:35px"  placeholder="ENTER LAST NAME" maxlength="25" class="input" id="accountinfo_lastname" ng-model="accountinfo.lastName">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 user__title account_info_label" style="text-align:left">
+                                        EMAIL:
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <input type="email" tabindex="4" required="required" style="height:35px" placeholder="ENTER EMAIL" class="input" maxlength="50" id="accountinfo_email" ng-model="accountinfo.email">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 user__title account_info_label" style="text-align:left">
+                                        Company :
+                                    </div>                                  
+                                </div>
+                            </div>
+                            <div class="row">                               
+                                <div class="col-md-12">
+                                    <select ng-options="accountinfo.company" style="width:250px;height:35px">
+                                        <option value="comcast">CRANK</option>
+                                        <option value="comcast">COMCAST</option>
+                                        <option value="ticketmaster">TICKET MASTER</option>
+                                    </select>
+                                </div>
+                            </div>
+                        <div class="row">
+                            <div class="col-md-4 user__title account_info_label">
+                                
+                            </div>
+                            <div class="col-md-8">
+                                
+                            </div>
+                        </div>                        
+                       
+                        </div>
+                  
+                    <div class="row" style="width: 40%;margin: 0 auto;">
+                    <button type="submit" tabindex="6" class="input">Save Changes</button>
+                        </div>
+                </div>
+</form>
+        </div>
+    </div>

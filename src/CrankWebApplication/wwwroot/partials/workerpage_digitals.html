@@ -1,0 +1,91 @@
+
+<div class="account__main_wpteam">
+
+    <!-- begin In network search -->
+    <div class="account__search search">
+        <input type="search" class="search__field" ng-model="searchInNetworkStationText">
+        <span class="search__icon-search"><i class="fa fa-search"></i></span>
+    </div>
+    <!--end In network search -->
+    <div class="events2">
+        <div id="wrapper" ng-iscroll="team-user-wrapper" ng-iscroll-delay="100" class="new_Wrapper">
+            <div id="wokerpage_events__scroller" class="wokerpage_events__scroller">
+                <div class="account__frames account__frames--bottom" ng-sortable="sortableStationConfig">
+                    <!-- begin in network team member frame -->
+                    <div ng-class="{'frame__workpageteam frame--active' : inNetworkStation.isActive == true, 'frame__workpageteam frame__gray' : inNetworkStation.isActive == false}" ng-repeat="inNetworkStation in InNetworkStations  | filter:searchInNetworkStationText ">
+                        <ul class="frame__controls">
+                            <li class="frame__control-item">
+                                <a href="" class="frame__control-btn frame__control-btn--underscore"></a>
+                            </li>
+                            <li class="frame__control-item">
+                                <a href="" class="frame__control-btn frame__control-btn--clone"><i class="fa fa-clone"></i></a>
+                            </li>
+                            <li class="frame__control-item">
+                                <a href="" ng-click="moveUserOutOfStation(inNetworkStation.id)" class="frame__control-btn frame__control-btn--close"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+
+                        
+                        <div class="frame_right">
+                            <span>{{inNetworkStation.name | uppercase }}</span>
+                            <span>{{inNetworkStation.owner | uppercase }}</span>
+                        </div>
+                    </div>
+                    <!-- end in network Station frame -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="cloned_items"></div>
+</div>
+
+<div class="account__side_wpteam account__side_wpteam--right">
+    <!-- begin out of network search -->
+    <div class="account__search search">
+        <input type="text" class="search__field" ng-model="searchedOutOfNetworkStation" typeahead="address.name for address in getSearchedStation($viewValue)"
+               typeahead-on-select="addSearchStationToDiv($scope, $item, $model, $label)" typeahead-loading="loadingLocations" typeahead-no-results="noResults">
+        <span class="search__icon-search"><i class="fa fa-search"></i></span>
+    </div>
+    <!-- end out of network search -->
+    <div class="account__frames account__frames_wpteam--side tabs__content" ng-sortable="sortableStationConfig">
+        <!-- begin out of network Module frame -->
+        <div ng-class="{ 'frame__workpageteam frame--active' : outOfNetworkStation.isActive == true, 'frame__workpageteam frame__gray' : (outOfNetworkStation.isActive == false) }" 
+             ng-repeat="outOfNetworkStation in OutOfNetworkStations |   orderBy: 'sortOrder' ">
+            <ul class="frame__controls">
+                <li class="frame__control-item">
+
+                </li>
+            </ul>
+
+            <div class="frame_right">
+                <span>{{outOfNetworkStation.name | uppercase }}</span>
+                <span>{{outOfNetworkStation.owner | uppercase}}</span>
+            </div>
+        </div>
+        <!-- end out of network Module frame -->
+    </div>
+</div>
+
+
+
+<ul class="account__actions">
+    <li class="account__action-item">
+        <a href="#" class="account__action-link">
+            <i class="fa fa-share"></i>
+        </a>
+    </li>
+    <li class="account__action-item">
+        <a href="#" class="account__action-link">
+            <i class="fa fa-print"></i>
+        </a>
+    </li>
+    <li class="account__action-item">
+        <a href="" class="account__action-link" ng-click="saveInNetworkStation()"><i class="fa fa-save"></i></a>
+    </li>
+    <li class="account__action-item">
+        <a href="#" class="account__action-link">
+            <i class="fa fa-share-alt"></i>
+        </a>
+    </li>
+</ul>
+

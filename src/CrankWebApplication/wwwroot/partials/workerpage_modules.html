@@ -1,0 +1,84 @@
+
+<div class="account__main_wpteam">
+
+    <!-- begin In network search -->
+    <div class="account__search search">
+        <input type="search" class="search__field" ng-model="searchInNetworkModuleText">
+        <span class="search__icon-search"><i class="fa fa-search"></i></span>
+    </div>
+    <!--end In network search -->
+    <div class="events2">
+        <div id="wrapper" ng-iscroll="team-user-wrapper" ng-iscroll-delay="100" class="new_Wrapper">
+            <div id="wokerpage_events__scroller" class="wokerpage_events__scroller">
+                <div class="account__frames account__frames--bottom" ng-sortable="sortableModuleConfig">
+                    <!-- begin in network team member frame -->
+                    <div ng-class="{'frame__workpageteam frame--active' : inNetworkModule.isActive == true, 'frame__workpageteam frame__gray' : inNetworkModule.isActive == false}" ng-repeat="inNetworkModule in InNetworkModules  | filter:searchInNetworkModuleText ">
+                        <ul class="frame__controls">
+                            <li class="frame__control-item">
+                                <a href="" class="frame__control-btn frame__control-btn--underscore"></a>
+                            </li>
+                            <li class="frame__control-item">
+                                <a href="" class="frame__control-btn frame__control-btn--clone"><i class="fa fa-clone"></i></a>
+                            </li>
+                            <li class="frame__control-item">
+                                <a href="" ng-click="moveUserOutOfModule(inNetworkModule.id)" class="frame__control-btn frame__control-btn--close"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+
+                        <div class="frame_right">
+                            <span>{{inNetworkModule.name | uppercase }}</span>                            
+                        </div>
+                    </div>
+                    <!-- end in network Module frame -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="cloned_items"></div>
+</div>
+
+<div class="account__side_wpteam account__side_wpteam--right">
+    <!-- begin out of network search -->
+    <div class="account__search search">
+        <input type="text" class="search__field" ng-model="searchedOutOfNetworkModule">
+        <span class="search__icon-search"><i class="fa fa-search"></i></span>
+    </div>
+    <!-- end out of network search -->
+    <div class="account__frames account__frames_wpteam--side tabs__content" ng-sortable="sortableModuleConfig">
+        <!-- begin out of network Module frame -->
+                <div ng-class="{ 'frame__workpageteam frame--active' : outOfNetworkModule.isActive == true, 'frame__workpageteam frame__gray' : (outOfNetworkModule.isActive == false) }" ng-repeat="outOfNetworkModule in OutOfNetworkModules  | filter:searchedOutOfNetworkModule ">
+                <ul class="frame__controls">
+                    <li class="frame__control-item">
+                      
+                    </li>
+                </ul>
+                
+                <div class="frame_right">
+                    <span>{{outOfNetworkModule.name | uppercase }}</span>                    
+                </div>
+            </div>
+            <!-- end out of network Module frame -->
+        </div>
+</div>
+
+<ul class="account__actions">
+    <li class="account__action-item">
+        <a href="#" class="account__action-link">
+            <i class="fa fa-share"></i>
+        </a>
+    </li>
+    <li class="account__action-item">
+        <a href="#" class="account__action-link">
+            <i class="fa fa-print"></i>
+        </a>
+    </li>
+    <li class="account__action-item">
+        <a href="" class="account__action-link" ng-click="saveInNetworkModule()"><i class="fa fa-save"></i></a>
+    </li>
+    <li class="account__action-item">
+        <a href="#" class="account__action-link">
+            <i class="fa fa-share-alt"></i>
+        </a>
+    </li>
+</ul>
+

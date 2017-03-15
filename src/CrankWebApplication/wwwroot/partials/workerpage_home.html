@@ -1,0 +1,145 @@
+<style>
+    .dragged {
+        position: absolute;
+        opacity: 0.5;
+        z-index: 2000;
+    }
+
+    .placeholder {
+        position: relative;
+        /** More li styles **/
+    }
+
+        .placeholder:before {
+            position: absolute;
+            /** Define arrowhead **/
+        }
+
+</style>
+
+<div ng-controller="workerPageCtrl">
+       
+        <div class="modal-header modified-Header">
+            <a class="modal-close" ng-click="cancel()" href="">&#10005;</a>
+        </div>
+
+        <!-- begin worker page navigation -->
+        <div class="account">
+            <div class="account__side account__side--left">
+
+                <!-- begin user information -->
+                <div class="user">
+                    <h2 class="user__title">Promoter</h2>
+
+                    <img src="http://placehold.it/50x50" alt="#" class="user__avatar" ng-src="{{loadedFile}}">
+
+                    <div class="user__name">{{current_login_user.firstName}}  {{current_login_user.lastName}}
+                       </div>
+
+                    <ul class="user__nav">
+                        <li class="user__nav-item_wpteam" ng-class=""><a class="user__nav-link_wpteam" href="">Change password</a></li>
+                        
+                        <li class="user__nav-item_wpteam" ng-class="{'user__nav-item_wpteam--active' : accountTabVisible}">
+                            <a class="user__nav-link_wpteam user__nav-link--lg" href=""  ng-click="showAccountTab()">Account info</a></li>
+                        
+                        <li class="user__nav-item_wpteam" ng-class="{'user__nav-item_wpteam--active' : rosterTabVisible}">
+                            <a class="user__nav-link_wpteam" href="" ng-click="showRosterTab()">Roster</a></li>
+                        
+                        <li class="user__nav-item_wpteam"><a class="user__nav-link_wpteam" href="">Shows</a></li>
+                        
+                        <li class="user__nav-item_wpteam" ng-class="{'user__nav-item_wpteam--active' : teamTabVisible}">
+                            <a class="user__nav-link_wpteam" href="" ng-click="showTeamTab()">Team</a></li>
+                        
+                        <li class="user__nav-item_wpteam" ng-class="{'user__nav-item_wpteam--active' : digitalTabVisible}">
+                            <a class="user__nav-link_wpteam" href="" ng-click="showDigitalsTab()">Digitals</a>
+                        </li>
+                        
+                        <li class="user__nav-item_wpteam" ng-class="{'user__nav-item_wpteam--active' : moduleTabVisible}">
+                            <a class="user__nav-link_wpteam" href="" ng-click="showModuleTab()">Modules</a></li>
+                    </ul>
+                </div>
+                <!-- end user information -->
+            </div>
+
+            <!-- account info -->
+            <div ng-include src="'partials/workerpage_accountinfo.html'" ng-show="accountTabVisible" style="min-width:950px;min-height:inherit"></div>
+            <!-- Roster -->
+            <div class="account__content_wpteam" ng-include src="'partials/workerpage_roster.html'" ng-show="rosterTabVisible"></div>
+            <!-- team -->
+            <div class="account__content_wpteam" ng-include src="'partials/workerpage_team.html'" ng-show="teamTabVisible"></div>
+            <!-- shows -->
+            <div class="account__content" ng-include src="'partials/workerpage_shows.html'" ng-show="showsTabVisible"></div>
+            <!-- Digitals -->
+            <div class="account__content_wpteam"  ng-include src="'partials/workerpage_digitals.html'"  ng-show="digitalTabVisible"></div>
+            <!-- Modules -->
+            <div class="account__content_wpteam" ng-include src="'partials/workerpage_modules.html'" ng-show="moduleTabVisible"></div>
+        </div>        
+   
+
+        <!-- Invite section for out of company users -->
+        <script type="text/ng-template" id="invite.html">
+            <style>
+            .modal-content {
+            border-radius:0;
+            border:none;
+            height:auto;
+            }
+             .modal-header {
+         align-content:center;
+            }
+            </style>
+            <div class="modal-header">
+                <span style="float:none">Invite</span>
+                <a class="modal-close" ng-click="cancel()" href="">&#10005;</a>
+            </div>
+                <div class="register">
+                    <div class="register-form">
+
+                        <div class="row ">
+                            <div class="col-sm-1">
+                            </div>
+                            <div class="col-md-4">
+                                <input style="height:30px; width:200px" type="text" tabindex="1" required="required" placeholder="USER NAME" class="input" id="invitee_name" ng-model="$parent.invited_user.firstName">
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-sm-1">
+                            </div>
+                            <div class="col-md-4">
+                                <select name="invitee_type" style="height:30px; width:200px">
+                                    <option value="1">Radio</option>
+                                    <option value="2">Label</option>
+                                    <option value="2">Promoter</option>
+                                    <option value="2">Artist Manager</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-sm-1">
+                            </div>
+                            <div class="col-md-4">
+                                <input style="height:30px; width:200px" type="email" tabindex="2" required="required" placeholder="EMAIL" class="input" name="invitee_email" id="invitee_email" ng-model="$parent.invited_user.email">
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-sm-1">
+                            </div>
+                            <div class="col-md-4">
+                                <input style="height:30px; width:200px" type="text" tabindex="3" required="required" placeholder="PHONE" class="input" name="invitee_phone" id="invitee_phone" ng-model="$parent.invited_user.phone">
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-sm-1">
+                            </div>
+                            <div class="col-md-4">
+                                <button type="submit" style="height:30px; width:200px" tabindex="6" class="input" ng-click="$parent.SendInviteMail()">Send Invite</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+</script>
+        <!-- End of invite section for out of company users -->
+</div>
+
+

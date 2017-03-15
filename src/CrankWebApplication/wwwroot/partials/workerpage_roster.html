@@ -1,0 +1,92 @@
+
+<div class="account__main_wpteam">
+
+    <!-- begin In network search -->
+    <div class="account__search search">
+        <input type="search" class="search__field" ng-model="searchInNetworkRosterText">
+        <span class="search__icon-search"><i class="fa fa-search"></i></span>
+    </div>
+    <!--end In network search -->
+    <div class="events2">
+        <div id="wrapper" ng-iscroll="team-user-wrapper" ng-iscroll-delay="100" class="new_Wrapper">
+            <div id="wokerpage_events__scroller" class="wokerpage_events__scroller">
+                <div class="account__frames account__frames--bottom" ng-sortable="sortableRosterConfig">
+                    <!-- begin in network team member frame -->
+                    <div class="frame__workpageteam frame--active" ng-repeat="inNetworkRoster in InNetworkRosters  | filter:{ title: searchInNetworkRosterText } ">
+                        <ul class="frame__controls">
+                            <li class="frame__control-item">
+                                <a href="" class="frame__control-btn frame__control-btn--underscore"></a>
+                            </li>
+                            <li class="frame__control-item">
+                                <a href="" class="frame__control-btn frame__control-btn--clone"><i class="fa fa-clone"></i></a>
+                            </li>
+                            <li class="frame__control-item">
+                                <a href="" ng-click="moveUserOutOfRoster(inNetworkRoster.id)" class="frame__control-btn frame__control-btn--close"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+
+                        
+                        <img ng-src="{{inNetworkRoster.imgResult}}" alt="" class="frame__pic">
+                        <div class="frame_right">
+                            <span>{{inNetworkRoster.title | uppercase }}</span>
+                            <span>{{inNetworkRoster.title | uppercase }}</span>
+                        </div>
+                    </div>
+                    <!-- end in network roster frame -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="cloned_items"></div>
+</div>
+
+<div class="account__side_wpteam account__side_wpteam--right">
+    <!-- begin out of network search -->
+    <div class="account__search search">
+        <input type="text" class="search__field" ng-model="searchedOutOfNetworkRoster" typeahead="address.title for address in getSearchedRoster($viewValue)"
+               typeahead-on-select="addSearchRosterToDiv($scope, $item, $model, $label)" typeahead-loading="loadingLocations" typeahead-no-results="noResults">
+        <span class="search__icon-search"><i class="fa fa-search"></i></span>
+    </div>
+    <!-- end out of network search -->
+    <div class="account__frames account__frames_wpteam--side tabs__content" ng-sortable="sortableRosterConfig">
+        <!-- begin out of network roster frame -->
+        <div ng-class="{ 'frame__workpageteam frame--active' : outOfNetworkRoster.isApproved == true, 'frame__workpageteam frame--active' : (outOfNetworkRoster.isApproved == false) }"
+              ng-repeat="outOfNetworkRoster in OutOfNetworkRosters  ">
+            <ul class="frame__controls">
+                <li class="frame__control-item">
+
+                </li>
+            </ul>
+
+            <img src="data/artist_thumbs/2627.jpg" alt="" class="frame__pic">
+            <div class="frame_right">
+                <span>{{outOfNetworkRoster.title | uppercase }}</span>
+                <span>{{outOfNetworkRoster.title | uppercase}}</span>
+            </div>
+        </div>
+        <!-- end out of network roster frame -->
+    </div>
+</div>
+
+
+<ul class="account__actions">
+    <li class="account__action-item">
+        <a href="#" class="account__action-link">
+            <i class="fa fa-share"></i>
+        </a>
+    </li>
+    <li class="account__action-item">
+        <a href="#" class="account__action-link">
+            <i class="fa fa-print"></i>
+        </a>
+    </li>
+    <li class="account__action-item">
+        <a href="" class="account__action-link" ng-click="saveInNetworkRoster()"><i class="fa fa-save"></i></a>
+    </li>
+    <li class="account__action-item">
+        <a href="#" class="account__action-link">
+            <i class="fa fa-share-alt"></i>
+        </a>
+    </li>
+</ul>
+

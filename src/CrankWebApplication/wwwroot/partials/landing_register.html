@@ -1,0 +1,81 @@
+<div class="register">
+    <div class="register-form">
+        <form autocomplete="off" id="register-form" class="form-inline form-ajax form-validate" data-result=".register-result" method="post" action="" ng-submit="submitRegister()">
+
+            <div class="row ">
+                <div class="col-sm-4">
+                    <input type="text" tabindex="1" required="required" placeholder="FIRST NAME" maxlength="25" class="input" name="register_first_name" id="register_first_name" ng-model="$parent.register_first_name">
+                </div>
+                <div class="col-sm-4">
+                    <input type="text" tabindex="2" required="required" placeholder="LAST NAME" maxlength="25" class="input" name="register_last_name" id="register_last_name" ng-model="$parent.register_last_name">
+                </div>
+                <div class="col-sm-4">
+                    <input type="email" tabindex="3" required="required" placeholder="YOUR EMAIL" maxlength="50" class="input" name="register_username" id="register_username" ng-model="$parent.register_username">
+                </div>
+            </div>
+
+            <div class="row ">
+                <div class="col-sm-4">
+                    <input type="password" tabindex="4" required="required" placeholder="PASSWORD" class="input" name="password" id="register_password" ng-model="$parent.register_password">
+                </div>
+                <div class="col-sm-4">
+                    <input type="password" tabindex="5" required="required" placeholder="RETYPE PASSWORD" class="input" name="password" id="register_password" ng-model="$parent.repeat_password">
+                </div>
+                <div class="col-sm-4">
+                    <!--<select ng-model="$parent.register_selected_country" ng-options="i.seqID as i.name for i in $parent.register_country_list" tabindex="6">-->
+                    <select tabindex="6" ng-model="$parent.register_selected_country">
+                        <option ng-model="$parent.register_selected_country" ng-repeat="country in $parent.register_country_list" value="{{country.SeqID}}">{{country.Name}}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row ">
+                <div class="col-sm-4">
+                    <div class="checkbox-block" ng-class="{active: $parent.register_user_type == 'artistmanager'}">
+                        <input name="register_user_type" tabindex="7" type="radio" value="artistmanager" id="artist_manager" selected class="pushup" ng-model="$parent.register_user_type">
+                        <label for="artist_manager">ARTIST MANAGER</label>
+                    </div>
+                    <div class="checkbox-block" ng-class="{active: $parent.register_user_type == 'radiomanager'}">
+                        <input name="register_user_type" tabindex="8" type="radio" value="radiomanager" id="radio_manager" class="pushup" ng-model="$parent.register_user_type">
+                        <label for="radio_manager">RADIO MANAGER</label>
+                    </div>
+                    <div class="checkbox-block" ng-class="{active: $parent.register_user_type == 'agentmanager'}">
+                        <input name="register_user_type" tabindex="9" type="radio" value="agentmanager" id="agency_manager" selected class="pushup" ng-model="$parent.register_user_type">
+                        <label for="agency_manager">AGENCY</label>
+                    </div>
+                    <div class="checkbox-block" ng-class="{active: $parent.register_user_type == 'promotermanager'}">
+                        <input name="register_user_type" tabindex="10" type="radio" value="promotermanager" id="promoter_manager" selected class="pushup" ng-model="$parent.register_user_type">
+                        <label for="promoter_manager">PROMOTER</label>
+                    </div>
+                    <div class="checkbox-block" ng-class="{active: $parent.register_user_type == 'recordlabelmanager'}">
+                        <input name="register_user_type" tabindex="11" type="radio" value="recordlabelmanager" id="label_manager" selected class="pushup" ng-model="$parent.register_user_type">
+                        <label for="label_manager">LABEL</label>
+                    </div>
+                    <div class="checkbox-block" ng-class="{active: $parent.register_user_type == 'digitalsmanager'}">
+                        <input name="register_user_type" tabindex="12" type="radio" value="digitalsmanager" id="digital_manager" class="pushup" ng-model="$parent.register_user_type">
+                        <label for="digital_manager">DIGITAL</label>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <!--<select ng-model="$parent.register_location" ng-options="i.id as i.name for i in $parent.register_company_name" required tabindex="13"></select>-->
+                    <select ng-model="$parent.register_company_name">
+                        <option value="comcast">COMCAST</option>
+                        <option value="ticketmaster">TICKET MASTER</option>
+                    </select>
+                </div>
+                <div class="col-sm-4">
+                    <button type="submit" tabindex="14" class="input">Register</button>
+                </div>
+            </div>
+
+            <!--<div class="row">
+                <div class="col-sm-4 col-sm-offset-8">
+                    <input name="remember" tabindex="10" type="checkbox" value="1" id="remember" checked="checked" class="pushup">
+                    <label for="remember">REMEMBER ME</label>
+                </div>
+            </div>-->
+        </form>
+
+    </div>
+</div>
+

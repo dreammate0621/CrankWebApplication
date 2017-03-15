@@ -1,0 +1,222 @@
+/*
+ * CSS overrides and Crank commons
+ */
+
+/*
+ * Leaflet overrides
+ */
+
+/* zoom and fade animations */
+
+.leaflet-fade-anim .leaflet-tile,
+.leaflet-fade-anim .leaflet-popup {
+    opacity: 0;
+    -webkit-transition: opacity 0.5s linear;
+    -moz-transition: opacity 0.5s linear;
+    -o-transition: opacity 0.5s linear;
+    transition: opacity 0.5s linear;
+}
+.leaflet-fade-anim .leaflet-tile-loaded,
+.leaflet-fade-anim .leaflet-map-pane .leaflet-popup {
+    opacity: 1;
+}
+
+.leaflet-zoom-anim .leaflet-zoom-animated {
+    -webkit-transition: -webkit-transform 1s cubic-bezier(0,0,0.25,1);
+    -moz-transition:    -moz-transform 1s cubic-bezier(0,0,0.25,1);
+    -o-transition:      -o-transform 1s cubic-bezier(0,0,0.25,1);
+    transition:         transform 1s cubic-bezier(0,0,0.25,1);
+}
+.leaflet-zoom-anim .leaflet-tile,
+.leaflet-pan-anim .leaflet-tile,
+.leaflet-touching .leaflet-zoom-animated {
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+    transition: none;
+}
+
+.leaflet-zoom-anim .leaflet-zoom-hide {
+    visibility: hidden;
+}
+
+
+/*
+ * Animations
+ */
+
+.collapsing {
+    -webkit-transition: height 1.5s!important;
+    -moz-transition: height 1.5s!important;
+    transition: height 1.5s!important;
+}
+.fade {
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+    opacity: 1;
+    display:inherit;
+}
+
+.fade.ng-hide {
+    opacity: 0;
+    display:none;
+}
+
+.fade.ng-animate {
+    display:block!important;
+}
+
+.view-animate {
+}
+
+.view-animate.ng-enter, .view-animate.ng-leave {
+    -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
+    transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
+
+    display:block;
+    width:100%;
+
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+}
+
+.view-animate.ng-enter {
+    left:100%;
+}
+.view-animate.ng-enter.ng-enter-active {
+    left:0;
+}
+.view-animate.ng-leave.ng-leave-active {
+    left:-100%;
+}
+
+.view0-
+*:focus {
+    outline: none !important;
+    text-decoration: none !important;
+}
+
+p {
+    color: #1f1f1f;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    font-family: 'Titillium Web';
+    color: #c15a26;
+    text-transform: uppercase;
+    text-decoration: none;
+    -moz-transition: color 0.3s linear;
+    -webkit-transition: color 0.3s linear;
+    -o-transition: color 0.3s linear;
+    transition: color 0.3s linear;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+
+input::-webkit-input-placeholder {
+    /* WebKit browsers */
+    color: #BDBDBD;
+}
+
+input:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: #BDBDBD;
+}
+
+input::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: #BDBDBD;
+}
+
+input:-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    color: #BDBDBD;
+}
+
+.btn.btn-black {
+    background-color:#111;
+    color:#fff;
+    letter-spacing:3px;
+}
+
+/**
+ * Drag and drop
+ * */
+
+.ui-draggable-dragging {
+    z-index:999;
+}
+/**
+ * Crank Modals
+ * */
+.modal-backdrop.in {
+    opacity:0.2;
+}
+
+.modal-content {
+    border-radius:0;
+    border:none;
+}
+
+.modal-dialog {
+    width:1200px;
+}
+
+.modal-dialog--invite {
+    width:1200px;
+}
+
+.modal-content--invite {
+    border-radius: 0;
+    border: none;
+    width: 300px;
+    top: 10px;
+    left: 800px;
+    height:400px;
+}
+
+/**
+ * Forms
+ * */
+.form-control {
+    border-radius:0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.btn {
+    border-radius:0;
+}
+
+/**
+ * Caroufredsel
+ * */
+.caroufredsel_wrapper {
+    margin:auto!important;
+}
+
+/**
+ * Fix for draggable traces in chrome
+ * http://stackoverflow.com/questions/12348884/jquery-ui-draggable-element-leaves-weird-traces-in-chrome
+ * */
+
+.ui-draggable {
+    outline: 1px solid transparent;
+}
+
+/* Graph Visualization */
+.visualization-wrapper, .visualization {
+  padding: 0;
+  height: 100%
+}

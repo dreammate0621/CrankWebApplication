@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{753C2448-D7F0-46F2-8ADE-2C4596265EA9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FEF6DE45-76CB-4BCA-B78D-BA5CC03CCF23}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "CrankWebApplication", "src\CrankWebApplication\CrankWebApplication.xproj", "{0EA601D3-3F3B-409F-A2E0-9F4E29EEEA3E}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "CrankService", "src\CrankService\CrankService.xproj", "{A0CA0634-D187-474D-9C21-6313EA389BAA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F8641D04-8044-48DD-9AA5-874C61C18EF1} = {F8641D04-8044-48DD-9AA5-874C61C18EF1}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crankdata", "src\crankdata\crankdata\Crankdata.csproj", "{F8641D04-8044-48DD-9AA5-874C61C18EF1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0EA601D3-3F3B-409F-A2E0-9F4E29EEEA3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EA601D3-3F3B-409F-A2E0-9F4E29EEEA3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EA601D3-3F3B-409F-A2E0-9F4E29EEEA3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EA601D3-3F3B-409F-A2E0-9F4E29EEEA3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0CA0634-D187-474D-9C21-6313EA389BAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0CA0634-D187-474D-9C21-6313EA389BAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0CA0634-D187-474D-9C21-6313EA389BAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0CA0634-D187-474D-9C21-6313EA389BAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8641D04-8044-48DD-9AA5-874C61C18EF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8641D04-8044-48DD-9AA5-874C61C18EF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8641D04-8044-48DD-9AA5-874C61C18EF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8641D04-8044-48DD-9AA5-874C61C18EF1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0EA601D3-3F3B-409F-A2E0-9F4E29EEEA3E} = {753C2448-D7F0-46F2-8ADE-2C4596265EA9}
+		{A0CA0634-D187-474D-9C21-6313EA389BAA} = {753C2448-D7F0-46F2-8ADE-2C4596265EA9}
+		{F8641D04-8044-48DD-9AA5-874C61C18EF1} = {753C2448-D7F0-46F2-8ADE-2C4596265EA9}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://rkrish.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = src\\crankdata\\crankdata\\Crankdata.csproj
+		SccProjectTopLevelParentUniqueName1 = CrankWebApplication.sln
+		SccProjectName1 = src/crankdata/crankdata
+		SccLocalPath1 = src\\crankdata\\crankdata
+		SccProjectUniqueName2 = src\\CrankService\\CrankService.xproj
+		SccProjectTopLevelParentUniqueName2 = CrankWebApplication.sln
+		SccProjectName2 = src/CrankService
+		SccLocalPath2 = src\\CrankService
+		SccProjectUniqueName3 = src\\CrankWebApplication\\CrankWebApplication.xproj
+		SccProjectTopLevelParentUniqueName3 = CrankWebApplication.sln
+		SccProjectName3 = src/CrankWebApplication
+		SccLocalPath3 = src\\CrankWebApplication
+	EndGlobalSection
+EndGlobal

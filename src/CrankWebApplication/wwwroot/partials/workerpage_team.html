@@ -1,0 +1,96 @@
+
+    <div class="account__main_wpteam" >
+
+        <!-- begin In network search -->
+        <div class="account__search search">
+            <input type="search" class="search__field" ng-model="searchInNetworkText">
+            <span class="search__icon-search"><i class="fa fa-search"></i></span>
+        </div>
+        <!--end In network search -->
+        <div class="events2">
+            <div id="wrapper" ng-iscroll="team-user-wrapper" ng-iscroll-delay="100" class="new_Wrapper">
+                <div id="wokerpage_events__scroller" class="wokerpage_events__scroller">
+                    <div class="account__frames account__frames--bottom" ng-sortable="inNetworkUsers">
+                        <!-- begin in network team member frame -->
+                        <div ng-class="{'frame__workpageteam frame--active' : inNetworkUser.isActive == true, 'frame__workpageteam' : inNetworkUser.isActive == false}" ng-repeat="inNetworkUser in InNetworkTeamUsers  | filter:searchInNetworkText ">
+                            <ul class="frame__controls">
+                                <li class="frame__control-item">
+                                    <a href="" class="frame__control-btn frame__control-btn--underscore"></a>
+                                </li>
+                                <li class="frame__control-item">
+                                    <a href="" class="frame__control-btn frame__control-btn--clone"><i class="fa fa-clone"></i></a>
+                                </li>
+                                <li class="frame__control-item">
+                                    <a href="" ng-click="moveUserOutOfTeam(inNetworkUser.id)" class="frame__control-btn frame__control-btn--close"><i class="fa fa-close"></i></a>
+                                </li>
+                            </ul>
+
+                            <img src="data/artist_thumbs/1881.jpg" alt="#" class="frame__pic">
+                            <div class="frame_right">
+                                <span>{{inNetworkUser.firstName | uppercase }} {{inNetworkUser.lastName | uppercase}}</span>
+                                <span>{{inNetworkUser.company | uppercase }}</span>
+                            </div>
+                        </div>
+                        <!-- end in network team member frame -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="cloned_items"></div>
+    </div>
+
+    <div class="account__side_wpteam account__side_wpteam--right">
+        <!-- begin out of network search -->
+        <div class="account__search search">
+            <input type="text" class="search__field" ng-model="searchedOutOfNetworkUser" typeahead="address.firstName + ' ' + address.lastName for address in getSearchedUser($viewValue)"
+                   typeahead-on-select="addSearchUserToDiv($scope, $item, $model, $label)" typeahead-loading="loadingLocations" typeahead-no-results="noResults">
+            <span class="search__icon-search"><i class="fa fa-search"></i></span>
+        </div>
+        <!-- end out of network search -->
+        <div class="account__frames account__frames_wpteam--side tabs__content" ng-sortable="sortableConfig">
+            <!-- begin out of network team members frame -->
+            <div style="min-height: 40px;" ng-repeat="outOfNetworkUser in OutOfNetworkTeamUsers | filter:searchOutOfNetworkText | orderBy: 'sortOrder' "
+                 ng-class="{'frame__workpageteam frame__workpageteam--active' : (outOfNetworkUser.isActive == true && outOfNetworkUser.isConnected == true), 'frame__workpageteam' : (outOfNetworkUser.isActive == true && outOfNetworkUser.isConnected == false), 'frame__workpageteam frame__gray' : (outOfNetworkUser.isActive == false) }">
+                <ul class="frame__controls">
+                    <li class="frame__control-item">
+                        <a href=""
+                           class="frame__control-btn frame__control-btn--plus" disabled ng-click="connectUserToLoginUser(outOfNetworkUser)" ng-show="{{outOfNetworkUser.isConnected == false}}">
+                            <i class="fa fa-plus"></i>
+                        </a>
+                    </li>
+                </ul>
+                <img src="data/artist_thumbs/2627.jpg" alt="" class="frame__pic">
+                <div class="frame_right">
+                    <span>{{outOfNetworkUser.firstName | uppercase }} {{outOfNetworkUser.lastName | uppercase}}</span>
+                    <span>{{outOfNetworkUser.company | uppercase}}</span>
+                    <a href="" ng-show="{{outOfNetworkUser.isActive == false}}" ng-click="inviteModalOpen(outOfNetworkUser)"
+                       class="frame__control-btn--invite ">
+                        INVITE
+                    </a>
+                </div>
+            </div>
+            <!-- end out of network team members frame -->
+        </div>
+    </div>
+
+    <ul class="account__actions">
+        <li class="account__action-item">
+            <a href="#" class="account__action-link">
+                <i class="fa fa-share"></i>
+            </a>
+        </li>
+        <li class="account__action-item">
+            <a href="#" class="account__action-link">
+                <i class="fa fa-print"></i>
+            </a>
+        </li>
+        <li class="account__action-item">
+            <a href="" class="account__action-link" ng-click="SaveInNetworkUsers()"><i class="fa fa-save"></i></a>
+        </li>
+        <li class="account__action-item">
+            <a href="#" class="account__action-link">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+    </ul>
+
